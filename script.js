@@ -99,7 +99,8 @@ function createConfetti() {
 // ===============================
 // 1) Deploy your Apps Script as Web App
 // 2) Paste the /exec URL below
-const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbwSBgyJNU3VSuSRDfNoveMeToemfCRM2esJWohBfPfZxQAJ6f88HCKRz7kQEY4TE4ud/exec";
+const ENDPOINT_URL =
+  "https://script.google.com/macros/s/AKfycbwSBgyJNU3VSuSRDfNoveMeToemfCRM2esJWohBfPfZxQAJ6f88HCKRz7kQEY4TE4ud/exec";
 
 const waitlistForm = document.getElementById("waitlist-form");
 const successMessage = document.getElementById("success-message");
@@ -138,7 +139,7 @@ if (waitlistForm) {
 
       if (!data.ok) throw new Error(data.error || "Unknown Apps Script error");
 
-      // UI success
+      // ✅ UI success
       button.classList.remove("loading");
       button.innerHTML = "<span>✓ Joined</span>";
       button.style.background = "#00C853";
@@ -146,6 +147,15 @@ if (waitlistForm) {
       waitlistForm.style.opacity = "0.5";
       waitlistForm.style.pointerEvents = "none";
       if (successMessage) successMessage.style.display = "block";
+
+      // ✅ GA4 Event Tracking (Conversion)
+      if (typeof gtag !== "undefined") {
+        gtag("event", "waitlist_signup", {
+          event_category: "engagement",
+          event_label: "early_access",
+          value: 1,
+        });
+      }
 
       createConfetti();
     } catch (err) {
