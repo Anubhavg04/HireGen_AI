@@ -5,6 +5,10 @@ HireGen AI is an AI-powered Career Operating System designed to help job seekers
 In today's hiring landscape, most resumes get rejected by ATS (Applicant Tracking Systems) before a human ever sees them. HireGen AI aims to solve this problem by providing intelligent resume optimization, job-specific customization, and structured application tracking.
 
 ---
+🌐 **Live Demo:** https://hiregeai.netlify.app  
+📩 **Waitlist Backend:** Google Sheets + Apps Script Web App
+
+---
 
 ## 🎯 Vision
 
